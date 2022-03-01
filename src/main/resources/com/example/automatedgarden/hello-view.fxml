@@ -12,5 +12,5 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Button text="Hello! This project is a group project. I'm Juliette!! This is Grant." onAction="#onHelloButtonClick"/>
+    <Button text="Hello! This project is a group project. I'm Juliette!! This is Grant!" onAction="#onHelloButtonClick"/>
 </VBox>
