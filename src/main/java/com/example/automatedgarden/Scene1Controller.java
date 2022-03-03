@@ -1,6 +1,7 @@
 package com.example.automatedgarden;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +16,8 @@ public class Scene1Controller {
     private Scene scene;
     private Parent root;
 
-
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scene2.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
