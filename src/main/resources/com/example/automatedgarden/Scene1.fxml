@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="408.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedgarden.Scene1Controller">
    <children>
-      <Label layoutX="84.0" layoutY="30.0" text="Welcome to the garden">
+      <Label layoutX="84.0" layoutY="30.0" text="Welcome to the garden!!!!">
          <font>
             <Font size="22.0" />
          </font>
