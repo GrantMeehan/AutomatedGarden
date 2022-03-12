@@ -68,10 +68,14 @@
          <children>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <MenuButton mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="MenuButton">
+                  <MenuButton fx:id="mb00" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="MenuButton">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseOnion" text="Onion" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseTomato" text="Tomato" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseZucchini" text="Zucchini" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseBellPepper" text="Bell Pepper" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseEggplant" text="Eggplant" />
+                      <MenuItem mnemonicParsing="false" onAction="#chooseSprinkler" text="Sprinkler" />
                     </items>
                   </MenuButton>
                </children>
