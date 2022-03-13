@@ -4,51 +4,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="777.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedgarden.Scene1Controller">
    <children>
-      <Label layoutX="70.0" layoutY="14.0" text="Welcome to the garden">
+      <Label layoutX="279.0" layoutY="14.0" text="Welcome to the garden">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="46.0" text="Please pick your plants (max 25)">
+      <Label layoutX="315.0" layoutY="46.0" text="Please pick your plants">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="524.0" layoutY="370.0" prefHeight="26.0" prefWidth="54.0" text="Onion">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="514.0" layoutY="396.0" prefHeight="26.0" prefWidth="74.0" text="Tomato">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="514.0" layoutY="475.0" prefHeight="26.0" prefWidth="74.0" text="Eggplant">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="514.0" layoutY="422.0" prefHeight="26.0" prefWidth="74.0" text="Zucchini">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="509.0" layoutY="449.0" prefHeight="26.0" prefWidth="84.0" text="Bell Pepper">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <GridPane layoutX="94.0" layoutY="96.0">
+      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="94.0" layoutY="96.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -66,23 +41,441 @@
           <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <MenuButton fx:id="mb00" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="MenuButton">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#chooseOnion" text="Onion" />
-                      <MenuItem mnemonicParsing="false" onAction="#chooseTomato" text="Tomato" />
-                      <MenuItem mnemonicParsing="false" onAction="#chooseZucchini" text="Zucchini" />
-                      <MenuItem mnemonicParsing="false" onAction="#chooseBellPepper" text="Bell Pepper" />
-                      <MenuItem mnemonicParsing="false" onAction="#chooseEggplant" text="Eggplant" />
-                      <MenuItem mnemonicParsing="false" onAction="#chooseSprinkler" text="Sprinkler" />
-                    </items>
-                  </MenuButton>
-               </children>
-            </StackPane>
+            <MenuButton fx:id="mb00" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Empty" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Bell Pepper" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Eggplant" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Onion" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Tomato" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Zucchini" />
+                <MenuItem mnemonicParsing="false" onAction="#changeMB00" text="Sprinkler" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="mb01" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB01" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb02" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB02" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb03" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB03" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb04" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB04" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb05" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB05" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb10" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB10" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb11" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB11" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb12" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB12" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb13" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB13" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb14" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB14" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb15" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB15" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb20" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB20" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb21" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB21" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb22" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB22" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb23" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB23" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb24" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB24" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb25" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB25" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb30" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB30" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb31" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB31" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb32" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB32" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb33" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB33" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb34" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB34" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb35" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB35" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb40" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB40" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb41" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB41" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb42" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB42" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb43" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB43" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb44" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB44" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb45" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB45" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb50" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB50" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb51" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB51" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb52" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB52" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb53" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB53" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb54" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB54" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb55" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Empty" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Empty" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Bell Pepper" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Eggplant" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Onion" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Tomato" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Zucchini" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeMB55" text="Sprinkler" />
+               </items>
+            </MenuButton>
+            <ImageView fx:id="iv00" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+            <ImageView fx:id="iv01" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" />
+            <ImageView fx:id="iv02" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" />
+            <ImageView fx:id="iv03" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" />
+            <ImageView fx:id="iv04" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" />
+            <ImageView fx:id="iv05" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" />
+            <ImageView fx:id="iv10" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv11" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv12" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv13" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv14" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv15" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ImageView fx:id="iv20" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv21" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv22" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv23" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv24" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv25" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ImageView fx:id="iv30" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv31" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv32" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv33" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv34" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv35" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ImageView fx:id="iv40" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv41" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv42" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv43" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv44" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv45" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ImageView fx:id="iv50" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="5" />
+            <ImageView fx:id="iv51" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fx:id="iv52" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ImageView fx:id="iv53" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ImageView fx:id="iv54" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ImageView fx:id="iv55" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button id="button1" layoutX="338.0" layoutY="709.0" mnemonicParsing="false" onMouseClicked="#submitButtonClick" prefHeight="40.0" prefWidth="84.0" text="Submit">
+      <Button id="#submitButton" fx:id="submitButton" layoutX="338.0" layoutY="709.0" mnemonicParsing="false" onMouseClicked="#submitButtonClick" prefHeight="40.0" prefWidth="84.0" text="Submit">
          <font>
             <Font size="16.0" />
          </font>
