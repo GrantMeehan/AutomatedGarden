@@ -2,14 +2,14 @@ package com.example.automatedgarden;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,13 @@ public class Scene1Controller{
     public MenuButton mb40, mb41, mb42, mb43, mb44, mb45;
     public MenuButton mb50, mb51, mb52, mb53, mb54, mb55;
 
-    public Button submitButton;
+    public Button sprinklersOnButton, sprinklersOffButton;
+    public Button heatingOnButton, heatingOffButton;
+    public Button submitButton, restartButton;
+
+    public Label sprinklersLabel, heatingLabel;
+
+    public Tooltip notice1, notice2;
 
     public ImageView iv00, iv01, iv02, iv03, iv04, iv05;
     public ImageView iv10, iv11, iv12, iv13, iv14, iv15;
@@ -185,8 +191,15 @@ public class Scene1Controller{
         mb55.setText(menuItem.getText());
     }
 
-    public void submitButtonClick() throws IOException {
+    public void submitButtonClick(){
         submitButton.setDisable(true);
+        restartButton.setVisible(true);
+        sprinklersOnButton.setDisable(false);
+        sprinklersOffButton.setDisable(false);
+        heatingOnButton.setDisable(false);
+        heatingOffButton.setDisable(false);
+        sprinklersLabel.setTooltip(null);
+        heatingLabel.setTooltip(null);
 
         menuButtonArrayList = new ArrayList<>(Arrays.asList(mb00,mb01,mb02,mb03,mb04,mb05,mb10,mb11,mb12,mb13,mb14,mb15,
                 mb20,mb21,mb22,mb23,mb24,mb25,mb30,mb31,mb32,mb33,mb34,mb35,
@@ -248,7 +261,70 @@ public class Scene1Controller{
                 }
             }
         }
+    }
 
+    public void restartButtonClicked(){
+        submitButton.setDisable(false);
+        restartButton.setVisible(false);
+        sprinklersOnButton.setDisable(true);
+        sprinklersOffButton.setDisable(true);
+        heatingOnButton.setDisable(true);
+        heatingOffButton.setDisable(true);
+        sprinklersLabel.setTooltip(notice1);
+        heatingLabel.setTooltip(notice2);
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                menuButton2DArray[i][j].setText("Empty");
+                menuButton2DArray[i][j].setVisible(true);
+                imageView2DArray[i][j].setVisible(false);
+            }
+        }
+    }
+
+    //need to change to only plants within area of sprinkler
+    public void turnSprinklersOn() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (imageView2DArray[i][j] != null) {
+                    ColorAdjust tintBlue = new ColorAdjust();
+                    tintBlue.setHue(Color.BLUE.getHue());
+                    imageView2DArray[i][j].setEffect(tintBlue);
+                }
+            }
+        }
+    }
+
+    public void turnSprinklersOff() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (imageView2DArray[i][j] != null) {
+                    imageView2DArray[i][j].setEffect(null);
+                }
+            }
+        }
+    }
+
+    public void turnHeatingOn() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (imageView2DArray[i][j] != null) {
+                    ColorAdjust tintOrangeRed = new ColorAdjust();
+                    tintOrangeRed.setHue(Color.ORANGE.getHue());
+                    imageView2DArray[i][j].setEffect(tintOrangeRed);
+                }
+            }
+        }
+    }
+
+    public void turnHeatingOff() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (imageView2DArray[i][j] != null) {
+                    imageView2DArray[i][j].setEffect(null);
+                }
+            }
+        }
     }
 
     public ArrayList<MenuButton> getGridPaneMenuButtons() {

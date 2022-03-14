@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,14 +12,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="777.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedgarden.Scene1Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedgarden.Scene1Controller">
    <children>
-      <Label layoutX="279.0" layoutY="14.0" text="Welcome to the garden">
+      <Label layoutX="279.0" layoutY="12.0" text="Welcome to the garden">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="315.0" layoutY="46.0" text="Please pick your plants">
+      <Label layoutX="312.0" layoutY="43.0" text="Please pick your plants">
          <font>
             <Font size="17.0" />
          </font>
@@ -475,10 +476,127 @@
             <ImageView fx:id="iv55" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button id="#submitButton" fx:id="submitButton" layoutX="338.0" layoutY="709.0" mnemonicParsing="false" onMouseClicked="#submitButtonClick" prefHeight="40.0" prefWidth="84.0" text="Submit">
+      <Button id="#submitButton" fx:id="submitButton" layoutX="352.0" layoutY="709.0" mnemonicParsing="false" onMouseClicked="#submitButtonClick" prefHeight="40.0" prefWidth="84.0" text="Submit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
+      <Label fx:id="sprinklersLabel" layoutX="77.0" layoutY="729.0" text="Sprinklers">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice1" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Button fx:id="sprinklersOnButton" disable="true" layoutX="74.0" layoutY="755.0" mnemonicParsing="false" onAction="#turnSprinklersOn" prefHeight="25.0" prefWidth="33.0" text="On" textAlignment="CENTER" />
+      <Button fx:id="sprinklersOffButton" disable="true" layoutX="116.0" layoutY="755.0" mnemonicParsing="false" onAction="#turnSprinklersOff" prefHeight="25.0" prefWidth="33.0" text="Off" textAlignment="CENTER" />
+      <Label fx:id="heatingLabel" layoutX="202.0" layoutY="729.0" text="Heating">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Submit choices before using heating" />
+         </tooltip>
+      </Label>
+      <Button fx:id="heatingOnButton" disable="true" layoutX="193.0" layoutY="755.0" mnemonicParsing="false" onAction="#turnHeatingOn" prefHeight="25.0" prefWidth="33.0" text="On" textAlignment="CENTER" />
+      <Button fx:id="heatingOffButton" disable="true" layoutX="235.0" layoutY="755.0" mnemonicParsing="false" onAction="#turnHeatingOff" prefHeight="25.0" prefWidth="33.0" text="Off" textAlignment="CENTER" />
+      <Label layoutX="70.0" layoutY="132.0" text="A" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice11" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="71.0" layoutY="232.0" text="B" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice111" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="71.0" layoutY="332.0" text="C" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice112" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="70.0" layoutY="432.0" text="D" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice113" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="71.0" layoutY="632.0" text="F" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice114" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="71.0" layoutY="533.0" text="E" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice115" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="141.0" layoutY="65.0" text="1" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice116" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="241.0" layoutY="65.0" text="2" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice1161" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="342.0" layoutY="65.0" text="3" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice11611" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="442.0" layoutY="65.0" text="4" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice11612" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="542.0" layoutY="65.0" text="5" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice11613" text="Submit choices before using sprinklers" />
+         </tooltip>
+      </Label>
+      <Label layoutX="641.0" layoutY="65.0" text="6" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="notice2" text="Submit choices before using heating" />
+         </tooltip>
+      </Label>
+      <Button fx:id="restartButton" layoutX="367.0" layoutY="755.0" mnemonicParsing="false" visible="false" onAction="#restartButtonClicked" text="Restart" />
    </children>
 </AnchorPane>
