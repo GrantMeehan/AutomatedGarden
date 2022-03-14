@@ -1,6 +1,9 @@
 package com.example.automatedgarden;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.effect.ColorAdjust;
@@ -9,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,11 +30,15 @@ public class Scene1Controller{
 
     public Button sprinklersOnButton, sprinklersOffButton;
     public Button heatingOnButton, heatingOffButton;
-    public Button submitButton, restartButton;
+    public Button submitButton, playPauseButton;
 
     public Label sprinklersLabel, heatingLabel;
+    public Label dayLabel, timeLabel;
+    public Label timesSpeedLabel;
 
     public Tooltip notice1, notice2;
+
+    public Slider timesSpeedSlider;
 
     public ImageView iv00, iv01, iv02, iv03, iv04, iv05;
     public ImageView iv10, iv11, iv12, iv13, iv14, iv15;
@@ -45,6 +53,8 @@ public class Scene1Controller{
     public MenuButton[][] menuButton2DArray = new MenuButton[6][6];
     public ImageView[][] imageView2DArray = new ImageView[6][6];
     public GardenItem[][] gardenItem2DArray = new GardenItem[6][6];
+
+    public Timeline worldTimeline;
 
     public void changeMB00(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
@@ -193,13 +203,15 @@ public class Scene1Controller{
 
     public void submitButtonClick(){
         submitButton.setDisable(true);
-        restartButton.setVisible(true);
+        playPauseButton.setVisible(true);
         sprinklersOnButton.setDisable(false);
         sprinklersOffButton.setDisable(false);
         heatingOnButton.setDisable(false);
         heatingOffButton.setDisable(false);
         sprinklersLabel.setTooltip(null);
         heatingLabel.setTooltip(null);
+        timesSpeedLabel.setVisible(true);
+        timesSpeedSlider.setVisible(true);
 
         menuButtonArrayList = new ArrayList<>(Arrays.asList(mb00,mb01,mb02,mb03,mb04,mb05,mb10,mb11,mb12,mb13,mb14,mb15,
                 mb20,mb21,mb22,mb23,mb24,mb25,mb30,mb31,mb32,mb33,mb34,mb35,
@@ -261,25 +273,44 @@ public class Scene1Controller{
                 }
             }
         }
+
+        worldTimeline = new Timeline(new KeyFrame(Duration.seconds(2.5), new EventHandler<ActionEvent>() {
+            int dayCounter = 1;
+            int hourCounter = 0;
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                hourCounter++;
+                if (hourCounter > 23) {
+                    hourCounter = 0;
+                    dayCounter++;
+                }
+                if (hourCounter < 10)
+                    timeLabel.setText("Time: 0" + hourCounter + ":00");
+                else
+                    timeLabel.setText("Time: " + hourCounter + ":00");
+                dayLabel.setText("Day: " + dayCounter);
+            }
+        }));
+        worldTimeline.setCycleCount(Integer.MAX_VALUE);
+        worldTimeline.play();
     }
 
-    public void restartButtonClicked(){
-        submitButton.setDisable(false);
-        restartButton.setVisible(false);
-        sprinklersOnButton.setDisable(true);
-        sprinklersOffButton.setDisable(true);
-        heatingOnButton.setDisable(true);
-        heatingOffButton.setDisable(true);
-        sprinklersLabel.setTooltip(notice1);
-        heatingLabel.setTooltip(notice2);
-
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                menuButton2DArray[i][j].setText("Empty");
-                menuButton2DArray[i][j].setVisible(true);
-                imageView2DArray[i][j].setVisible(false);
-            }
+    public void playPauseButtonClicked(){
+        if (playPauseButton.getText().equalsIgnoreCase("pause")) {
+            worldTimeline.pause();
+            timesSpeedSlider.setDisable(true);
+            playPauseButton.setText("Play");
         }
+        else if (playPauseButton.getText().equalsIgnoreCase("play")) {
+            worldTimeline.play();
+            timesSpeedSlider.setDisable(false);
+            playPauseButton.setText("Pause");
+        }
+    }
+
+    public void timesSpeedChanged() {
+        timesSpeedLabel.setText("Simulation Speed: " + (int)timesSpeedSlider.getValue());
+        worldTimeline.setRate(timesSpeedSlider.getValue());
     }
 
     //need to change to only plants within area of sprinkler
@@ -327,6 +358,7 @@ public class Scene1Controller{
         }
     }
 
+    //unused function
     public ArrayList<MenuButton> getGridPaneMenuButtons() {
         ArrayList<StackPane> stackPanes = new ArrayList<>();
         for (Node child : gridPane.getChildren()) {
