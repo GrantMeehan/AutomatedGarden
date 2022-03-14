@@ -6,9 +6,11 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.io.IOException;
-import java.util.Objects;
+import java.time.LocalDateTime;
 
 public class GardenMain extends Application {
+
+    public static LocalDateTime startTime;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -19,6 +21,11 @@ public class GardenMain extends Application {
     }
 
     public static void main(String[] args) {
+        startTime = LocalDateTime.now();
         launch();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(Logkeeping::compileLogs));
     }
+
+
 }

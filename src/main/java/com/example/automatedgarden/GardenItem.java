@@ -1,5 +1,7 @@
 package com.example.automatedgarden;
 
+// CURRENTLY UNUSED
+
 import javafx.scene.image.Image;
 
 public class GardenItem {

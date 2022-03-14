@@ -6,15 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -52,9 +48,13 @@ public class Scene1Controller{
 
     public MenuButton[][] menuButton2DArray = new MenuButton[6][6];
     public ImageView[][] imageView2DArray = new ImageView[6][6];
-    public GardenItem[][] gardenItem2DArray = new GardenItem[6][6];
+    public Plant[][] plant2DArray = new Plant[6][6];
+    public Sprinkler[][] sprinkler2DArray = new Sprinkler[6][6];
 
     public Timeline worldTimeline;
+
+    public int dayCounter = 1;
+    public int hourCounter = 0;
 
     public void changeMB00(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
@@ -202,6 +202,7 @@ public class Scene1Controller{
     }
 
     public void submitButtonClick(){
+        Logkeeping.addLog("Begin day 1.");
         submitButton.setDisable(true);
         playPauseButton.setVisible(true);
         sprinklersOnButton.setDisable(false);
@@ -243,23 +244,25 @@ public class Scene1Controller{
             }
         }
 
+        //creates 2D arrays for plants and sprinklers depending on menu button choice
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 if (menuButton2DArray[i][j] != null) {
                     switch (menuButton2DArray[i][j].getText().toLowerCase()) {
-                        case "empty" -> gardenItem2DArray[i][j] = new GardenItem();
-                        case "bell pepper" -> gardenItem2DArray[i][j] = new BellPepper();
-                        case "eggplant" -> gardenItem2DArray[i][j] = new Eggplant();
-                        case "onion" -> gardenItem2DArray[i][j] = new Onion();
-                        case "tomato" -> gardenItem2DArray[i][j] = new Tomato();
-                        case "zucchini" -> gardenItem2DArray[i][j] = new Zucchini();
-                        case "sprinkler" -> gardenItem2DArray[i][j] = new Sprinkler();
+                        case "empty" -> plant2DArray[i][j] = new Plant();
+                        case "bell pepper" -> plant2DArray[i][j] = new BellPepper();
+                        case "eggplant" -> plant2DArray[i][j] = new Eggplant();
+                        case "onion" -> plant2DArray[i][j] = new Onion();
+                        case "tomato" -> plant2DArray[i][j] = new Tomato();
+                        case "zucchini" -> plant2DArray[i][j] = new Zucchini();
+                        case "sprinkler" -> sprinkler2DArray[i][j] = new Sprinkler();
                     }
+                    if (plant2DArray[i][j] != null && !plant2DArray[i][j].getName().equalsIgnoreCase("empty"))
+                        Logkeeping.addLog(plant2DArray[i][j].getName() + " planted.");
                     //System.out.println(menuButton2DArray[i][j].getText());
                 }
             }
         }
-        System.out.println();
 
         //Displays ImageView Elements and changes Image to starting
         for (int i = 0; i < 6; i++) {
@@ -267,8 +270,12 @@ public class Scene1Controller{
                 if (imageView2DArray[i][j] != null) {
                     imageView2DArray[i][j].setVisible(true);
                 }
-                if(gardenItem2DArray[i][j].getItemImage() != null) {
-                    Image itemImage = gardenItem2DArray[i][j].getItemImage();
+                if(plant2DArray[i][j] != null) {
+                    Image itemImage = plant2DArray[i][j].getPlantImage();
+                    imageView2DArray[i][j].setImage(itemImage);
+                }
+                if(sprinkler2DArray[i][j] != null) {
+                    Image itemImage = sprinkler2DArray[i][j].getSprinklerImage();
                     imageView2DArray[i][j].setImage(itemImage);
                 }
             }
@@ -280,15 +287,39 @@ public class Scene1Controller{
             @Override
             public void handle(ActionEvent actionEvent) {
                 hourCounter++;
-                if (hourCounter > 23) {
+
+                if (hourCounter == WateringSystem.getTurnOnTime()) {
+                    turnSprinklersOn();
+                }
+                if (hourCounter == WateringSystem.getTurnOffTime()) {
+                    turnSprinklersOff();
+                }
+
+                if (hourCounter > 23) { //SWITCHING DAY
                     hourCounter = 0;
                     dayCounter++;
+                    Logkeeping.addLog('\n' + "Begin day " + dayCounter + ".");
+
+                    for (int i = 0; i < 6; i++) {
+                        for (int j = 0; j < 6; j++) {
+                            if (plant2DArray[i][j] != null) {
+                                plant2DArray[i][j].setDaysUntilDead(plant2DArray[i][j].getDaysUntilDead()-1);
+                                if (plant2DArray[i][j].getDaysUntilDead() == 0) {
+                                    Logkeeping.addLog(plant2DArray[i][j].getName() + " plant died.");
+                                    plant2DArray[i][j].killPlant();
+                                    imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
+                                }
+                            }
+                        }
+                    }
                 }
                 if (hourCounter < 10)
                     timeLabel.setText("Time: 0" + hourCounter + ":00");
                 else
                     timeLabel.setText("Time: " + hourCounter + ":00");
                 dayLabel.setText("Day: " + dayCounter);
+
+                //updateImages();
             }
         }));
         worldTimeline.setCycleCount(Integer.MAX_VALUE);
@@ -297,11 +328,13 @@ public class Scene1Controller{
 
     public void playPauseButtonClicked(){
         if (playPauseButton.getText().equalsIgnoreCase("pause")) {
+            Logkeeping.addLog("Simulation paused.");
             worldTimeline.pause();
             timesSpeedSlider.setDisable(true);
             playPauseButton.setText("Play");
         }
         else if (playPauseButton.getText().equalsIgnoreCase("play")) {
+            Logkeeping.addLog("Simulation resumed.");
             worldTimeline.play();
             timesSpeedSlider.setDisable(false);
             playPauseButton.setText("Pause");
@@ -309,50 +342,39 @@ public class Scene1Controller{
     }
 
     public void timesSpeedChanged() {
+        Logkeeping.addLog("Simulation speed changed to " + (int)timesSpeedSlider.getValue() + ".");
         timesSpeedLabel.setText("Simulation Speed: " + (int)timesSpeedSlider.getValue());
         worldTimeline.setRate(timesSpeedSlider.getValue());
     }
 
     //need to change to only plants within area of sprinkler
     public void turnSprinklersOn() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                if (imageView2DArray[i][j] != null) {
-                    ColorAdjust tintBlue = new ColorAdjust();
-                    tintBlue.setHue(Color.BLUE.getHue());
-                    imageView2DArray[i][j].setEffect(tintBlue);
-                }
-            }
-        }
+        imageView2DArray = WateringSystem.turnSprinklersOn(plant2DArray,sprinkler2DArray,imageView2DArray);
     }
 
     public void turnSprinklersOff() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                if (imageView2DArray[i][j] != null) {
-                    imageView2DArray[i][j].setEffect(null);
-                }
-            }
-        }
+        imageView2DArray = WateringSystem.turnSprinklersOff(plant2DArray,sprinkler2DArray,imageView2DArray);
     }
 
     public void turnHeatingOn() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                if (imageView2DArray[i][j] != null) {
-                    ColorAdjust tintOrangeRed = new ColorAdjust();
-                    tintOrangeRed.setHue(Color.ORANGE.getHue());
-                    imageView2DArray[i][j].setEffect(tintOrangeRed);
-                }
-            }
-        }
+        imageView2DArray = HeatingSystem.turnHeatingOn(plant2DArray,sprinkler2DArray,imageView2DArray);
     }
 
     public void turnHeatingOff() {
+        imageView2DArray = HeatingSystem.turnHeatingOff(plant2DArray,sprinkler2DArray,imageView2DArray);
+    }
+
+    //Gets the current plant/sprinkler images and updates the imageview elements
+    public void updateImages() {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                if (imageView2DArray[i][j] != null) {
-                    imageView2DArray[i][j].setEffect(null);
+                if(plant2DArray[i][j] != null) {
+                    Image plantImage = plant2DArray[i][j].getPlantImage();
+                    imageView2DArray[i][j].setImage(plantImage);
+                }
+                if (sprinkler2DArray[i][j] != null) {
+                    Image sprinklerImage = sprinkler2DArray[i][j].getSprinklerImage();
+                    imageView2DArray[i][j].setImage(sprinklerImage);
                 }
             }
         }
