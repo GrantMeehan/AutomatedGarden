@@ -53,9 +53,6 @@ public class Scene1Controller{
 
     public Timeline worldTimeline;
 
-    public int dayCounter = 1;
-    public int hourCounter = 0;
-
     public void changeMB00(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
         mb00.setText(menuItem.getText());

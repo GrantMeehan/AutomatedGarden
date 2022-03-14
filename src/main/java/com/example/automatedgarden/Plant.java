@@ -17,11 +17,18 @@ public class Plant {
         this.plantImage = null;
     }
 
+    //add specific changers for specific plants
     public void growPlant() {
-
+        switch (plantStage) {
+            case SEED:
+                this.plantStage = PlantStage.SAPLING;
+            case SAPLING:
+                this.plantStage = PlantStage.FLOWERED;
+        }
     }
 
     public void killPlant() {
+        this.plantStage = PlantStage.DEAD;
         FileInputStream deadPlantFile;
         try {
             deadPlantFile = new FileInputStream("images/dead-plant-placeholder.jpg"); //example image -- need to change
