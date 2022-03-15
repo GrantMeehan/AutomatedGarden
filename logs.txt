@@ -1,0 +1,21 @@
+---------------------------------------
+Simulation began at 2022/03/15 13:21:57
+---------------------------------------
+
+Begin day 1.
+Bell Pepper planted.
+Eggplant planted.
+Tomato planted.
+Simulation speed changed to 12.
+Sprinklers turned on.
+Sprinklers turned off.
+
+------------------------------------------
+Simulation finished at 2022/03/15 13:22:09
+------------------------------------------
+Total plants harvested:
+Bell Pepper: 0
+Eggplant: 0
+Onion: 0
+Tomato: 0
+Zucchini: 0
