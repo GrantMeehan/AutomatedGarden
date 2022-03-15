@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 public class Plant {
     protected String name;
     protected Image plantImage;
-    protected int daysPerGrowth;
+    protected int daysUntilGrowth;
     protected int daysUntilDead;
     protected PlantStage plantStage;
     protected boolean sprinklerInRange;
@@ -20,12 +20,7 @@ public class Plant {
 
     //add specific changers for specific plants
     public void growPlant() {
-        switch (plantStage) {
-            case SEED:
-                this.plantStage = PlantStage.SAPLING;
-            case SAPLING:
-                this.plantStage = PlantStage.FLOWERED;
-        }
+
     }
 
     public void killPlant() {
@@ -37,6 +32,8 @@ public class Plant {
         } catch (FileNotFoundException e) {
             System.out.println("Dead plant image file not found");
         }
+
+        this.daysUntilGrowth = 0;
     }
 
     public String getName() {
@@ -55,12 +52,16 @@ public class Plant {
         this.plantImage = plantImage;
     }
 
-    public int getDaysPerGrowth() {
-        return daysPerGrowth;
+    public int getDaysUntilGrowth() {
+        return daysUntilGrowth;
     }
 
-    public void setDaysPerGrowth(int daysPerGrowth) {
-        this.daysPerGrowth = daysPerGrowth;
+    public void setDaysUntilGrowth(int daysUntilGrowth) {
+        this.daysUntilGrowth = daysUntilGrowth;
+    }
+
+    public void resetDaysUntilGrowth() {
+
     }
 
     public int getDaysUntilDead() {
@@ -69,6 +70,10 @@ public class Plant {
 
     public void setDaysUntilDead(int daysUntilDead) {
         this.daysUntilDead = daysUntilDead;
+    }
+
+    public void resetDaysUntilDead() {
+
     }
 
     public PlantStage getPlantStage() {
@@ -85,9 +90,5 @@ public class Plant {
 
     public void setSprinklerInRange(boolean sprinklerInRange) {
         this.sprinklerInRange = sprinklerInRange;
-    }
-
-    public void resetDaysUntilDead() {
-
     }
 }

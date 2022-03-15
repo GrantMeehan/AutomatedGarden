@@ -304,6 +304,9 @@ public class Scene1Controller{
                                     plant2DArray[i][j].killPlant();
                                     imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
                                 }
+                                plant2DArray[i][j].setDaysUntilGrowth(plant2DArray[i][j].getDaysUntilGrowth()-1);
+                                plant2DArray[i][j].growPlant();
+                                imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
                             }
                         }
                     }

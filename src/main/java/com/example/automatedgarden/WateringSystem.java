@@ -14,7 +14,7 @@ public class WateringSystem {
     private static final int turnOffTime = 8;
 
     public static void turnSprinklersOn() {
-        Logkeeping.addLog("Sprinklers turned on");
+        Logkeeping.addLog("Sprinklers turned on.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 if (Scene1Controller.plant2DArray[i][j] != null && Scene1Controller.plant2DArray[i][j].isSprinklerInRange()) {
@@ -39,7 +39,7 @@ public class WateringSystem {
     }
 
     public static void turnSprinklersOff() {
-        Logkeeping.addLog("Sprinklers turned off");
+        Logkeeping.addLog("Sprinklers turned off.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 if (Scene1Controller.plant2DArray[i][j] != null) {
