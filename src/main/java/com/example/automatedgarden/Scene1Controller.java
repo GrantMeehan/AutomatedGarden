@@ -345,7 +345,6 @@ public class Scene1Controller{
     //need to change to only plants within area of sprinkler
     public void turnSprinklersOn() {
         WateringSystem.turnSprinklersOn();
-        turnHeatingOff();
     }
 
     public void turnSprinklersOff() {
@@ -354,7 +353,6 @@ public class Scene1Controller{
 
     public void turnHeatingOn() {
         HeatingSystem.turnHeatingOn();
-        turnSprinklersOn();
     }
 
     public void turnHeatingOff() {
