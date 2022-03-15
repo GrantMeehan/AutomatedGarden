@@ -16,7 +16,7 @@ public class Logkeeping {
     public static void compileLogs() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         try {
-            FileWriter writer = new FileWriter("logs.txt");
+            FileWriter writer = new FileWriter("logs/logs.txt");
             writer.write("---------------------------------------" + '\n');
             writer.write("Simulation began at " + dtf.format(GardenMain.startTime) + '\n');
             writer.write("---------------------------------------" + '\n');
