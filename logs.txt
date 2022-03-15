@@ -1,17 +1,27 @@
 ---------------------------------------
-Simulation began at 2022/03/15 13:21:57
+Simulation began at 2022/03/15 14:44:58
 ---------------------------------------
 
 Begin day 1.
 Bell Pepper planted.
-Eggplant planted.
-Tomato planted.
-Simulation speed changed to 12.
+Simulation speed changed to 1.
 Sprinklers turned on.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
 Sprinklers turned off.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
+Simulation speed changed to 1.
 
 ------------------------------------------
-Simulation finished at 2022/03/15 13:22:09
+Simulation finished at 2022/03/15 14:45:42
 ------------------------------------------
 Total plants harvested:
 Bell Pepper: 0

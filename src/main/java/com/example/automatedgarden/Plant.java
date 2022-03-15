@@ -18,11 +18,15 @@ public class Plant {
         this.plantImage = null;
     }
 
-    //add specific changers for specific plants
+    //overloaded by subclasses for specific plant images
     public void growPlant() {
 
     }
 
+    //changes plant stage to dead
+    //updates plant image to dead plant image
+    //logs that plant has died
+    //changes daysUntilGrowth to 0 so plant will never grow
     public void killPlant() {
         this.plantStage = PlantStage.DEAD;
         FileInputStream deadPlantFile;
@@ -32,7 +36,7 @@ public class Plant {
         } catch (FileNotFoundException e) {
             System.out.println("Dead plant image file not found");
         }
-
+        Logkeeping.addLog(name + " plant died.");
         this.daysUntilGrowth = 0;
     }
 
@@ -60,6 +64,7 @@ public class Plant {
         this.daysUntilGrowth = daysUntilGrowth;
     }
 
+    //overloaded by subclasses for specific plant growth ranges
     public void resetDaysUntilGrowth() {
 
     }
@@ -72,6 +77,7 @@ public class Plant {
         this.daysUntilDead = daysUntilDead;
     }
 
+    //overloaded by subclasses for specific plant death ranges
     public void resetDaysUntilDead() {
 
     }

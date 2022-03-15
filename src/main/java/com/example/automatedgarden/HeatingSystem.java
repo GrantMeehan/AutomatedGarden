@@ -12,6 +12,8 @@ public class HeatingSystem {
         Logkeeping.addLog("Heating turned on.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
+                //check if location in imageView2DArray is null to avoid null pointer exception on function calls
+                //if not a square with a sprinkler, change tint of plant square to orange-red by blending current color with light red
                 if (Scene1Controller.imageView2DArray[i][j] != null && Scene1Controller.sprinkler2DArray[i][j] == null) {
                     ColorAdjust monochrome = new ColorAdjust();
                     ColorInput colorInput = new ColorInput(
@@ -32,6 +34,8 @@ public class HeatingSystem {
         Logkeeping.addLog("Heating turned off.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
+                //check if location in imageView2DArray is null to avoid null pointer exception on function calls
+                //if not a square with a sprinkler, set effect to null to eliminate tint
                 if (Scene1Controller.imageView2DArray[i][j] != null && Scene1Controller.sprinkler2DArray[i][j] == null) {
                     Scene1Controller.imageView2DArray[i][j].setEffect(null);
                 }
