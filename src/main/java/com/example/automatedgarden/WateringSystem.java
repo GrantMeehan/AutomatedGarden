@@ -1,6 +1,9 @@
 package com.example.automatedgarden;
 
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.ColorInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -9,15 +12,22 @@ public class WateringSystem {
 
     private static final int turnOnTime = 5;
     private static final int turnOffTime = 8;
-    
+
     public static void turnSprinklersOn() {
         Logkeeping.addLog("Sprinklers turned on");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 if (Scene1Controller.plant2DArray[i][j] != null && Scene1Controller.plant2DArray[i][j].isSprinklerInRange()) {
                     Scene1Controller.plant2DArray[i][j].resetDaysUntilDead();
-                    ColorAdjust tintBlue = new ColorAdjust();
-                    tintBlue.setHue(Color.BLUE.getHue());
+                    ColorAdjust monochrome = new ColorAdjust();
+                    ColorInput colorInput = new ColorInput(
+                            Scene1Controller.imageView2DArray[i][j].getX(),
+                            Scene1Controller.imageView2DArray[i][j].getY(),
+                            Scene1Controller.imageView2DArray[i][j].getFitHeight(),
+                            Scene1Controller.imageView2DArray[i][j].getFitWidth(),
+                            Color.SKYBLUE
+                    );
+                    Blend tintBlue = new Blend(BlendMode.MULTIPLY, monochrome, colorInput);
                     Scene1Controller.imageView2DArray[i][j].setEffect(tintBlue);
                 }
                 if (Scene1Controller.sprinkler2DArray[i][j] != null) { //if sprinkler is present turn it on and update image

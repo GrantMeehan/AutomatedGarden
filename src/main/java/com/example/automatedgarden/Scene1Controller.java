@@ -345,6 +345,7 @@ public class Scene1Controller{
     //need to change to only plants within area of sprinkler
     public void turnSprinklersOn() {
         WateringSystem.turnSprinklersOn();
+        turnHeatingOff();
     }
 
     public void turnSprinklersOff() {
@@ -352,11 +353,12 @@ public class Scene1Controller{
     }
 
     public void turnHeatingOn() {
-        imageView2DArray = HeatingSystem.turnHeatingOn(plant2DArray,sprinkler2DArray,imageView2DArray);
+        HeatingSystem.turnHeatingOn();
+        turnSprinklersOn();
     }
 
     public void turnHeatingOff() {
-        imageView2DArray = HeatingSystem.turnHeatingOff(plant2DArray,sprinkler2DArray,imageView2DArray);
+        HeatingSystem.turnHeatingOff();
     }
 
     //Gets the current plant/sprinkler images and updates the imageview elements
