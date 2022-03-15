@@ -31,6 +31,7 @@ public class Scene1Controller{
     public Label sprinklersLabel, heatingLabel;
     public Label dayLabel, timeLabel;
     public Label timesSpeedLabel;
+    public Label bellPepperTotalLabel, eggplantTotalLabel, onionTotalLabel, tomatoTotalLabel, zucchiniTotalLabel;
 
     public Tooltip notice1, notice2;
 
@@ -305,8 +306,13 @@ public class Scene1Controller{
                                     imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
                                 }
                                 plant2DArray[i][j].setDaysUntilGrowth(plant2DArray[i][j].getDaysUntilGrowth()-1);
-                                plant2DArray[i][j].growPlant();
+                                plant2DArray[i][j].growPlant(); //only will grow if days until growth == 0
                                 imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
+                                bellPepperTotalLabel.setText("Bell Pepper: " + BellPepper.bellPepperHarvestCount);
+                                eggplantTotalLabel.setText("Eggplant: " + Eggplant.eggplantHarvestCount);
+                                onionTotalLabel.setText("Onion: " + Onion.onionHarvestCount);
+                                tomatoTotalLabel.setText("Tomato: " + Tomato.tomatoHarvestCount);
+                                zucchiniTotalLabel.setText("Zucchini: " + Zucchini.zucchiniHarvestCount);
                             }
                         }
                     }
