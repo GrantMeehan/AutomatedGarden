@@ -20,4 +20,8 @@ public class Zucchini extends Plant{
             System.out.println("Zucchini image file not found");
         }
     }
+
+    public void resetDaysUntilDead() {
+        this.daysUntilDead = 5;
+    }
 }

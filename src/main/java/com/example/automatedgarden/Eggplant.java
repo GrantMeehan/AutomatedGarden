@@ -20,4 +20,8 @@ public class Eggplant extends Plant {
             System.out.println("Eggplant image file not found");
         }
     }
+
+    public void resetDaysUntilDead() {
+        this.daysUntilDead = 4;
+    }
 }

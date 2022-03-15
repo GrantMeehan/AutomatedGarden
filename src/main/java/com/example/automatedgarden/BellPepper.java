@@ -20,4 +20,8 @@ public class BellPepper extends Plant {
             System.out.println("Bell pepper image file not found");
         }
     }
+
+    public void resetDaysUntilDead() {
+        this.daysUntilDead = 7;
+    }
 }

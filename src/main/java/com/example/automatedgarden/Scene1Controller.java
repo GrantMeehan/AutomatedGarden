@@ -46,10 +46,10 @@ public class Scene1Controller{
     public ArrayList<MenuButton> menuButtonArrayList;
     public ArrayList<ImageView> imageViewArrayList;
 
-    public MenuButton[][] menuButton2DArray = new MenuButton[6][6];
-    public ImageView[][] imageView2DArray = new ImageView[6][6];
-    public Plant[][] plant2DArray = new Plant[6][6];
-    public Sprinkler[][] sprinkler2DArray = new Sprinkler[6][6];
+    public static MenuButton[][] menuButton2DArray = new MenuButton[6][6];
+    public static ImageView[][] imageView2DArray = new ImageView[6][6];
+    public static Plant[][] plant2DArray = new Plant[6][6];
+    public static Sprinkler[][] sprinkler2DArray = new Sprinkler[6][6];
 
     public Timeline worldTimeline;
 
@@ -271,12 +271,10 @@ public class Scene1Controller{
                     Image itemImage = plant2DArray[i][j].getPlantImage();
                     imageView2DArray[i][j].setImage(itemImage);
                 }
-                if(sprinkler2DArray[i][j] != null) {
-                    Image itemImage = sprinkler2DArray[i][j].getSprinklerImage();
-                    imageView2DArray[i][j].setImage(itemImage);
-                }
             }
         }
+
+        WateringSystem.initalizeWateringSystem();
 
         worldTimeline = new Timeline(new KeyFrame(Duration.seconds(2.5), new EventHandler<ActionEvent>() {
             int dayCounter = 1;
@@ -346,11 +344,11 @@ public class Scene1Controller{
 
     //need to change to only plants within area of sprinkler
     public void turnSprinklersOn() {
-        imageView2DArray = WateringSystem.turnSprinklersOn(plant2DArray,sprinkler2DArray,imageView2DArray);
+        WateringSystem.turnSprinklersOn();
     }
 
     public void turnSprinklersOff() {
-        imageView2DArray = WateringSystem.turnSprinklersOff(plant2DArray,sprinkler2DArray,imageView2DArray);
+        WateringSystem.turnSprinklersOff();
     }
 
     public void turnHeatingOn() {

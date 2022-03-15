@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 public class Onion extends Plant {
     public Onion() {
         this.name = "Onion";
-        this.daysPerGrowth = 6;
+        this.daysPerGrowth = 7;
         this.daysUntilDead = 10;
         this.plantStage = PlantStage.SEED;
 
@@ -20,5 +20,9 @@ public class Onion extends Plant {
         } catch (FileNotFoundException e) {
             System.out.println("Onion image file not found");
         }
+    }
+
+    public void resetDaysUntilDead() {
+        this.daysUntilDead = 10;
     }
 }

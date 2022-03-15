@@ -11,6 +11,7 @@ public class Plant {
     protected int daysPerGrowth;
     protected int daysUntilDead;
     protected PlantStage plantStage;
+    protected boolean sprinklerInRange;
 
     public Plant() {
         this.name = "Empty";
@@ -76,5 +77,17 @@ public class Plant {
 
     public void setPlantStage(PlantStage plantStage) {
         this.plantStage = plantStage;
+    }
+
+    public boolean isSprinklerInRange() {
+        return sprinklerInRange;
+    }
+
+    public void setSprinklerInRange(boolean sprinklerInRange) {
+        this.sprinklerInRange = sprinklerInRange;
+    }
+
+    public void resetDaysUntilDead() {
+
     }
 }
