@@ -14,7 +14,7 @@ public class Pest {
 
         FileInputStream pestImageFile;
         try {
-            pestImageFile = new FileInputStream("images/pests-placeholder.png"); //example image -- need to change
+            pestImageFile = new FileInputStream("images/pests.png"); //example image -- need to change
             this.image = new Image(pestImageFile);
         } catch (FileNotFoundException e) {
             System.out.println("Pest image file not found.");

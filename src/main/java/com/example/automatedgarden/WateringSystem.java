@@ -14,7 +14,7 @@ public class WateringSystem {
 
     public static void turnSprinklersOn() {
         //logs that sprinklers have been turned on
-        Logkeeping.addLog("Sprinkler system turned on.");
+        Logkeeping.addLog("Sprinkler system turned on at " + turnOnTime + ":00.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 //check if location in plant2DArray is null to avoid null pointer exception on function calls
@@ -46,7 +46,7 @@ public class WateringSystem {
     }
 
     public static void turnSprinklersOff() {
-        Logkeeping.addLog("Sprinkler system turned off.");
+        Logkeeping.addLog("Sprinkler system turned off at " + turnOffTime + ":00.");
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 //check if location in plant2DArray is null to avoid null pointer exception on function calls
