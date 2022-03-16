@@ -29,7 +29,7 @@ public class WateringSystem {
                             Scene1Controller.plantImageView2DArray[i][j].getY(),
                             Scene1Controller.plantImageView2DArray[i][j].getFitHeight(),
                             Scene1Controller.plantImageView2DArray[i][j].getFitWidth(),
-                            Color.SKYBLUE
+                            Color.DEEPSKYBLUE
                     );
                     Blend tintBlue = new Blend(BlendMode.MULTIPLY, monochrome, colorInput);
                     Scene1Controller.plantImageView2DArray[i][j].setEffect(tintBlue);

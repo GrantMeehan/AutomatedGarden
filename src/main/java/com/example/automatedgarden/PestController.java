@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class PestController {
 
-    private static int maxPests;
+    private static int maxPests = -1;
     private static int pestSpawnTime; //random number between 0 (inclusive) and 5 (exclusive) OR 20 (inclusive) and 24 (exclusive)
 
     //randomly generate number of pests that will spawn (1 - # of total plants?)
@@ -14,11 +14,13 @@ public class PestController {
     //update image to reflect
     public static void generatePests() {
         Logkeeping.addLog("Pests have attacked the garden!");
-        if (maxPests < 1)
+        if (maxPests < 0)
             calculateMaxPests();
 
         Random rand = new Random(System.currentTimeMillis());
-        int numPests = rand.nextInt(1, maxPests);
+        int numPests = 0;
+        if (maxPests > 0)
+            numPests = rand.nextInt(0, maxPests);
 
         while (numPests > 0) {
             for (int i = 0; i < 6; i++) {
