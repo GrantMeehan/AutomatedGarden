@@ -209,7 +209,7 @@ public class Scene1Controller{
         mb55.setText(menuItem.getText());
     }
 
-    //On Action of the Submit Button being clicked
+    //On the action of the Submit Button being clicked
     public void submitButtonClick(){
         Logkeeping.addLog("Begin day 1.");
         submitButton.setDisable(true);
