@@ -19,7 +19,7 @@ public class Zucchini extends Plant{
 
         FileInputStream seedlingImageFile;
         try {
-            seedlingImageFile = new FileInputStream("images/seedling-placeholder.png"); //example image -- need to change
+            seedlingImageFile = new FileInputStream("images/seedling.png");
             this.plantImage = new Image(seedlingImageFile);
         } catch (FileNotFoundException e) {
             System.out.println("Seedling image file not found.");
@@ -34,7 +34,7 @@ public class Zucchini extends Plant{
                     this.plantStage = PlantStage.SAPLING;
                     FileInputStream saplingImageFile;
                     try {
-                        saplingImageFile = new FileInputStream("images/sapling-placeholder.jpg"); //example image -- need to change
+                        saplingImageFile = new FileInputStream("images/sapling.png");
                         this.plantImage = new Image(saplingImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Sapling image file not found.");
@@ -46,7 +46,7 @@ public class Zucchini extends Plant{
                     this.plantStage = PlantStage.FLOWERED;
                     FileInputStream zucchiniImageFile;
                     try {
-                        zucchiniImageFile = new FileInputStream("images/zucchini-placeholder.jpg"); //example image -- need to change
+                        zucchiniImageFile = new FileInputStream("images/zucchini.png");
                         this.plantImage = new Image(zucchiniImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Zucchini image file not found.");
@@ -58,7 +58,7 @@ public class Zucchini extends Plant{
                     this.plantStage = PlantStage.SEED;
                     FileInputStream seedlingImageFile;
                     try {
-                        seedlingImageFile = new FileInputStream("images/seedling-placeholder.png"); //example image -- need to change
+                        seedlingImageFile = new FileInputStream("images/seedling.png");
                         this.plantImage = new Image(seedlingImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");

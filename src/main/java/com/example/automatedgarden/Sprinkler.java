@@ -14,7 +14,7 @@ public class Sprinkler{
 
         FileInputStream sprinklerImageFile;
         try {
-            sprinklerImageFile = new FileInputStream("images/sprinkler-off-placeholder.png"); //example image -- need to change
+            sprinklerImageFile = new FileInputStream("images/sprinkler_off.png");
             this.sprinklerImage = new Image(sprinklerImageFile);
         } catch (FileNotFoundException e) {
             System.out.println("Sprinkler image file not found");
@@ -36,7 +36,7 @@ public class Sprinkler{
     public void turnOn() {
         FileInputStream sprinklerOnFile;
         try {
-            sprinklerOnFile = new FileInputStream("images/sprinkler-on-placeholder.jpg"); //example image -- need to change
+            sprinklerOnFile = new FileInputStream("images/sprinkler_on.png");
             this.sprinklerImage = new Image(sprinklerOnFile);
         } catch (FileNotFoundException e) {
             System.out.println("Sprinkler on image file not found");
@@ -46,7 +46,7 @@ public class Sprinkler{
     public void turnOff() {
         FileInputStream sprinklerOffFile;
         try {
-            sprinklerOffFile = new FileInputStream("images/sprinkler-off-placeholder.png"); //example image -- need to change
+            sprinklerOffFile = new FileInputStream("images/sprinkler_off.png");
             this.sprinklerImage = new Image(sprinklerOffFile);
         } catch (FileNotFoundException e) {
             System.out.println("Sprinkler off image file not found");

@@ -20,7 +20,7 @@ public class Tomato extends Plant {
 
         FileInputStream seedlingImageFile;
         try {
-            seedlingImageFile = new FileInputStream("images/seedling-placeholder.png"); //example image -- need to change
+            seedlingImageFile = new FileInputStream("images/seedling.png");
             this.plantImage = new Image(seedlingImageFile);
         } catch (FileNotFoundException e) {
             System.out.println("Seedling image file not found.");
@@ -35,7 +35,7 @@ public class Tomato extends Plant {
                     this.plantStage = PlantStage.SAPLING;
                     FileInputStream saplingImageFile;
                     try {
-                        saplingImageFile = new FileInputStream("images/sapling-placeholder.jpg"); //example image -- need to change
+                        saplingImageFile = new FileInputStream("images/sapling.png");
                         this.plantImage = new Image(saplingImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Sapling image file not found.");
@@ -47,7 +47,7 @@ public class Tomato extends Plant {
                     this.plantStage = PlantStage.FLOWERED;
                     FileInputStream tomatoImageFile;
                     try {
-                        tomatoImageFile = new FileInputStream("images/tomato-placeholder.png"); //example image -- need to change
+                        tomatoImageFile = new FileInputStream("images/tomato.png");
                         this.plantImage = new Image(tomatoImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Tomato image file not found.");
@@ -59,7 +59,7 @@ public class Tomato extends Plant {
                     this.plantStage = PlantStage.SEED;
                     FileInputStream seedlingImageFile;
                     try {
-                        seedlingImageFile = new FileInputStream("images/seedling-placeholder.png"); //example image -- need to change
+                        seedlingImageFile = new FileInputStream("images/seedling.png");
                         this.plantImage = new Image(seedlingImageFile);
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");

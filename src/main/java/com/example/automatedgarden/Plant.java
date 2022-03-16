@@ -33,7 +33,7 @@ public class Plant {
         this.plantStage = PlantStage.DEAD;
         FileInputStream deadPlantFile;
         try {
-            deadPlantFile = new FileInputStream("images/dead-plant-placeholder.jpg"); //example image -- need to change
+            deadPlantFile = new FileInputStream("images/dead.png");
             this.plantImage = new Image(deadPlantFile);
         } catch (FileNotFoundException e) {
             System.out.println("Dead plant image file not found");
