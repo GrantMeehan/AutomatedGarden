@@ -18,6 +18,14 @@ public class Plant {
         this.name = "Empty";
         this.plantImage = null;
         this.plantHealth = -1;
+
+        FileInputStream blankPlantFile;
+        try {
+            blankPlantFile = new FileInputStream("images/blank_soil.png");
+            this.plantImage = new Image(blankPlantFile);
+        } catch (FileNotFoundException e) {
+            System.out.println("Blank soil image file not found");
+        }
     }
 
     //overloaded by subclasses for specific plant images
