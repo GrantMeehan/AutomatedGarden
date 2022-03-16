@@ -16,6 +16,7 @@ public class Eggplant extends Plant {
         this.daysUntilGrowth = rand.nextInt(5,7);
         this.daysUntilDead = 4;
         this.plantStage = PlantStage.SEED;
+        this.plantHealth = 10;
 
         FileInputStream seedlingImageFile;
         try {
@@ -63,6 +64,7 @@ public class Eggplant extends Plant {
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");
                     }
+                    this.plantHealth = 10;
                     resetDaysUntilGrowth();
                     resetDaysUntilDead();
                     eggplantHarvestCount++;

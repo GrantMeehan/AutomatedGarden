@@ -17,6 +17,7 @@ public class Onion extends Plant {
         this.daysUntilGrowth = rand.nextInt(6,9);
         this.daysUntilDead = 10;
         this.plantStage = PlantStage.SEED;
+        this.plantHealth = 10;
 
         FileInputStream seedlingImageFile;
         try {
@@ -64,6 +65,7 @@ public class Onion extends Plant {
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");
                     }
+                    this.plantHealth = 10;
                     resetDaysUntilGrowth();
                     resetDaysUntilDead();
                     onionHarvestCount++;

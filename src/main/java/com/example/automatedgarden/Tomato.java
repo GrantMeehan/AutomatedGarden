@@ -13,9 +13,10 @@ public class Tomato extends Plant {
     public Tomato() {
         this.name = "Tomato";
         Random rand = new Random(System.currentTimeMillis());
-        this.daysUntilGrowth = rand.nextInt(2,4);
-        this.daysUntilDead = 12;
+        this.daysUntilGrowth = rand.nextInt(3,5);
+        this.daysUntilDead = 7;
         this.plantStage = PlantStage.SEED;
+        this.plantHealth = 10;
 
         FileInputStream seedlingImageFile;
         try {
@@ -63,6 +64,7 @@ public class Tomato extends Plant {
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");
                     }
+                    this.plantHealth = 10;
                     resetDaysUntilGrowth();
                     resetDaysUntilDead();
                     tomatoHarvestCount++;
@@ -74,12 +76,12 @@ public class Tomato extends Plant {
 
     @Override
     public void resetDaysUntilDead() {
-        this.daysUntilDead = 12;
+        this.daysUntilDead = 7;
     }
 
     @Override
     public void resetDaysUntilGrowth() {
         Random rand = new Random(System.currentTimeMillis());
-        this.daysUntilGrowth = rand.nextInt(2,4);
+        this.daysUntilGrowth = rand.nextInt(3,5);
     }
 }

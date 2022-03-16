@@ -12,10 +12,12 @@ public class Plant {
     protected int daysUntilDead;
     protected PlantStage plantStage;
     protected boolean sprinklerInRange;
+    protected int plantHealth;
 
     public Plant() {
         this.name = "Empty";
         this.plantImage = null;
+        this.plantHealth = -1;
     }
 
     //overloaded by subclasses for specific plant images
@@ -96,5 +98,13 @@ public class Plant {
 
     public void setSprinklerInRange(boolean sprinklerInRange) {
         this.sprinklerInRange = sprinklerInRange;
+    }
+
+    public int getPlantHealth() {
+        return plantHealth;
+    }
+
+    public void setPlantHealth(int plantHealth) {
+        this.plantHealth = plantHealth;
     }
 }

@@ -37,18 +37,26 @@ public class Scene1Controller{
 
     public Slider timesSpeedSlider;
 
-    public ImageView iv00, iv01, iv02, iv03, iv04, iv05;
-    public ImageView iv10, iv11, iv12, iv13, iv14, iv15;
-    public ImageView iv20, iv21, iv22, iv23, iv24, iv25;
-    public ImageView iv30, iv31, iv32, iv33, iv34, iv35;
-    public ImageView iv40, iv41, iv42, iv43, iv44, iv45;
-    public ImageView iv50, iv51, iv52, iv53, iv54, iv55;
+    public ImageView plantIV00, plantIV01, plantIV02, plantIV03, plantIV04, plantIV05;
+    public ImageView plantIV10, plantIV11, plantIV12, plantIV13, plantIV14, plantIV15;
+    public ImageView plantIV20, plantIV21, plantIV22, plantIV23, plantIV24, plantIV25;
+    public ImageView plantIV30, plantIV31, plantIV32, plantIV33, plantIV34, plantIV35;
+    public ImageView plantIV40, plantIV41, plantIV42, plantIV43, plantIV44, plantIV45;
+    public ImageView plantIV50, plantIV51, plantIV52, plantIV53, plantIV54, plantIV55;
+
+    public ImageView pestIV00, pestIV01, pestIV02, pestIV03, pestIV04, pestIV05;
+    public ImageView pestIV10, pestIV11, pestIV12, pestIV13, pestIV14, pestIV15;
+    public ImageView pestIV20, pestIV21, pestIV22, pestIV23, pestIV24, pestIV25;
+    public ImageView pestIV30, pestIV31, pestIV32, pestIV33, pestIV34, pestIV35;
+    public ImageView pestIV40, pestIV41, pestIV42, pestIV43, pestIV44, pestIV45;
+    public ImageView pestIV50, pestIV51, pestIV52, pestIV53, pestIV54, pestIV55;
 
     public ArrayList<MenuButton> menuButtonArrayList;
-    public ArrayList<ImageView> imageViewArrayList;
+    public ArrayList<ImageView> plantImageViewArrayList, pestImageViewArrayList;
 
     public static MenuButton[][] menuButton2DArray = new MenuButton[6][6];
-    public static ImageView[][] imageView2DArray = new ImageView[6][6];
+    public static ImageView[][] plantImageView2DArray = new ImageView[6][6];
+    public static ImageView[][] pestImageView2DArray = new ImageView[6][6];
     public static Plant[][] plant2DArray = new Plant[6][6];
     public static Sprinkler[][] sprinkler2DArray = new Sprinkler[6][6];
     public static Pest[][] pest2DArray = new Pest[6][6];
@@ -206,10 +214,10 @@ public class Scene1Controller{
         Logkeeping.addLog("Begin day 1.");
         submitButton.setDisable(true);
         playPauseButton.setVisible(true);
-        sprinklersOnButton.setDisable(false);
-        sprinklersOffButton.setDisable(false);
-        heatingOnButton.setDisable(false);
-        heatingOffButton.setDisable(false);
+//        sprinklersOnButton.setDisable(false);
+//        sprinklersOffButton.setDisable(false);
+//        heatingOnButton.setDisable(false);
+//        heatingOffButton.setDisable(false);
         sprinklersLabel.setTooltip(null);
         heatingLabel.setTooltip(null);
         timesSpeedLabel.setVisible(true);
@@ -218,9 +226,12 @@ public class Scene1Controller{
         menuButtonArrayList = new ArrayList<>(Arrays.asList(mb00,mb01,mb02,mb03,mb04,mb05,mb10,mb11,mb12,mb13,mb14,mb15,
                 mb20,mb21,mb22,mb23,mb24,mb25,mb30,mb31,mb32,mb33,mb34,mb35,
                 mb40,mb41,mb42,mb43,mb44,mb45,mb50,mb51,mb52,mb53,mb54,mb55));
-        imageViewArrayList = new ArrayList<>(Arrays.asList(iv00,iv01,iv02,iv03,iv04,iv05,iv10,iv11,iv12,iv13,iv14,iv15,
-                iv20,iv21,iv22,iv23,iv24,iv25,iv30,iv31,iv32,iv33,iv34,iv35,
-                iv40,iv41,iv42,iv43,iv44,iv45,iv50,iv51,iv52,iv53,iv54,iv55));
+        plantImageViewArrayList = new ArrayList<>(Arrays.asList(plantIV00,plantIV01,plantIV02,plantIV03,plantIV04,plantIV05,plantIV10,plantIV11,plantIV12,plantIV13,plantIV14,plantIV15,
+                plantIV20,plantIV21,plantIV22,plantIV23,plantIV24,plantIV25,plantIV30,plantIV31,plantIV32,plantIV33,plantIV34,plantIV35,
+                plantIV40,plantIV41,plantIV42,plantIV43,plantIV44,plantIV45,plantIV50,plantIV51,plantIV52,plantIV53,plantIV54,plantIV55));
+        pestImageViewArrayList = new ArrayList<>(Arrays.asList(pestIV00,pestIV01,pestIV02,pestIV03,pestIV04,pestIV05,pestIV10,pestIV11,pestIV12,pestIV13,pestIV14,pestIV15,
+                pestIV20,pestIV21,pestIV22,pestIV23,pestIV24,pestIV25,pestIV30,pestIV31,pestIV32,pestIV33,pestIV34,pestIV35,
+                pestIV40,pestIV41,pestIV42,pestIV43,pestIV44,pestIV45,pestIV50,pestIV51,pestIV52,pestIV53,pestIV54,pestIV55));
         //menuButtonArrayList = getGridPaneMenuButtons();
 
         //converts menuButtonArrayList to a 2DArray of MenuButton elements
@@ -235,12 +246,22 @@ public class Scene1Controller{
             }
         }
 
-        //converts imageViewArrayList to a 2DArray of ImageView elements
+        //converts plantImageViewArrayList to a 2DArray of ImageView elements
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                if (!imageViewArrayList.isEmpty()) {
-                    imageView2DArray[i][j] = imageViewArrayList.get(0);
-                    imageViewArrayList.remove(0);
+                if (!plantImageViewArrayList.isEmpty()) {
+                    plantImageView2DArray[i][j] = plantImageViewArrayList.get(0);
+                    plantImageViewArrayList.remove(0);
+                }
+            }
+        }
+
+        //converts pestImageViewArrayList to a 2DArray of ImageView elements
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (!pestImageViewArrayList.isEmpty()) {
+                    pestImageView2DArray[i][j] = pestImageViewArrayList.get(0);
+                    pestImageViewArrayList.remove(0);
                 }
             }
         }
@@ -276,14 +297,18 @@ public class Scene1Controller{
         //at locations where plants have been planted, the images of the ImageView elements are changed to the correct Image (seedlings)
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                //check if location in imageView2DArray is null to avoid null pointer exception on function calls
-                if (imageView2DArray[i][j] != null) {
-                    imageView2DArray[i][j].setVisible(true);
+                //check if location in plantImageView2DArray is null to avoid null pointer exception on function calls
+                if (plantImageView2DArray[i][j] != null) {
+                    plantImageView2DArray[i][j].setVisible(true);
+                }
+                //check if location in pestImageView is null to avoid null pointer exception on function calls
+                if (pestImageView2DArray[i][j] != null) {
+                    pestImageView2DArray[i][j].setVisible(true);
                 }
                 //check if location in plant2DArray is null to avoid null pointer exception on function calls
                 if(plant2DArray[i][j] != null) {
                     Image itemImage = plant2DArray[i][j].getPlantImage();
-                    imageView2DArray[i][j].setImage(itemImage);
+                    plantImageView2DArray[i][j].setImage(itemImage);
                 }
             }
         }
@@ -292,14 +317,41 @@ public class Scene1Controller{
         //more specific details in WateringSystem class
         WateringSystem.initializeWateringSystem();
 
+        //generates pest spawn time for day 1
+        PestController.generateSpawnTime();
+
         //creates new timeline that will repeatedly run a function at each time step of the timeline
         worldTimeline = new Timeline(new KeyFrame(Duration.seconds(2.5), new EventHandler<ActionEvent>() {
             int dayCounter = 1;
             int hourCounter = 0;
+            int hourPestsPresent = 0;
             @Override
             //this function will run at each time step (set by the duration) of the timeline
             public void handle(ActionEvent actionEvent) {
                 hourCounter++;
+
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (plant2DArray[i][j] != null && pest2DArray[i][j] != null)
+                        {
+                            plant2DArray[i][j].setPlantHealth(plant2DArray[i][j].getPlantHealth()-1);
+                        }
+                    }
+                }
+                boolean pestsPresent = false;
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (pest2DArray[i][j] != null) {
+                            hourPestsPresent = hourCounter;
+                            pestsPresent = true;
+                            break;
+                        }
+                    }
+                }
+                if (pestsPresent)
+                    turnHeatingOn();
+                if (hourCounter == PestController.getPestSpawnTime() + 2)
+                    turnHeatingOff();
 
                 //Runs the Watering System turn on sequence at the time set by the Watering System
                 if (hourCounter == WateringSystem.getTurnOnTime()) {
@@ -309,6 +361,23 @@ public class Scene1Controller{
                 if (hourCounter == WateringSystem.getTurnOffTime()) {
                     turnSprinklersOff();
                 }
+                //Randomly generates pests at randomly generated spawn time
+                if (hourCounter == PestController.getPestSpawnTime())
+                {
+                    PestController.generatePests();
+                }
+
+                //checks health status of plants hourly to ensure not dead from pests
+                for (int i = 0; i < 6; i++) {
+                    for (int j = 0; j < 6; j++) {
+                        if (plant2DArray[i][j] != null)
+                            if (plant2DArray[i][j].getPlantHealth() == 0) {
+                                plant2DArray[i][j].killPlant();
+                                //update image to correct plant image (will be dead plant image)
+                                plantImageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
+                            }
+                    }
+                }
 
                 //items that need to happen when the day switches
                 if (hourCounter > 23) {
@@ -316,18 +385,19 @@ public class Scene1Controller{
                     dayCounter++;
                     Logkeeping.addLog('\n' + "Begin day " + dayCounter + ".");
 
+                    PestController.generateSpawnTime();
+
                     for (int i = 0; i < 6; i++) {
                         for (int j = 0; j < 6; j++) {
                             //check if location in plant2DArray is null to avoid null pointer exception on function calls
                             if (plant2DArray[i][j] != null) {
-
-                                //decreases days the plant will die by 1
+                                //decreases days until the plant will die by 1
                                 plant2DArray[i][j].setDaysUntilDead(plant2DArray[i][j].getDaysUntilDead()-1);
                                 //if the plant has no more days until death, run the plant kill function
                                 if (plant2DArray[i][j].getDaysUntilDead() == 0) {
                                     plant2DArray[i][j].killPlant();
                                     //update image to correct plant image (will be dead plant image)
-                                    imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
+                                    plantImageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
                                 }
 
                                 //decreases days until the next growth of the plant by 1
@@ -337,7 +407,7 @@ public class Scene1Controller{
                                 plant2DArray[i][j].growPlant();
 
                                 //update image to correct plant image; if plant grew, image will be different
-                                imageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
+                                plantImageView2DArray[i][j].setImage(plant2DArray[i][j].getPlantImage());
 
                                 //updates harvest totals for each plant
                                 bellPepperTotalLabel.setText("Bell Pepper: " + BellPepper.bellPepperHarvestCount);
@@ -406,11 +476,13 @@ public class Scene1Controller{
 
     //Runs the Heating System turn on sequence
     public void turnHeatingOn() {
+        PestController.generatePests();
         HeatingSystem.turnHeatingOn();
     }
 
     //Runs the Heating System turn off sequence
     public void turnHeatingOff() {
+        PestController.killPests();
         HeatingSystem.turnHeatingOff();
     }
 
@@ -420,11 +492,11 @@ public class Scene1Controller{
             for (int j = 0; j < 6; j++) {
                 if(plant2DArray[i][j] != null) {
                     Image plantImage = plant2DArray[i][j].getPlantImage();
-                    imageView2DArray[i][j].setImage(plantImage);
+                    plantImageView2DArray[i][j].setImage(plantImage);
                 }
                 if (sprinkler2DArray[i][j] != null) {
                     Image sprinklerImage = sprinkler2DArray[i][j].getSprinklerImage();
-                    imageView2DArray[i][j].setImage(sprinklerImage);
+                    plantImageView2DArray[i][j].setImage(sprinklerImage);
                 }
             }
         }

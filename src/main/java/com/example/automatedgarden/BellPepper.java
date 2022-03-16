@@ -16,6 +16,7 @@ public class BellPepper extends Plant {
         this.daysUntilGrowth = rand.nextInt(4,6);
         this.daysUntilDead = 7;
         this.plantStage = PlantStage.SEED;
+        this.plantHealth = 10;
 
         FileInputStream seedlingImageFile;
         try {
@@ -63,6 +64,7 @@ public class BellPepper extends Plant {
                     } catch (FileNotFoundException e) {
                         System.out.println("Seedling image file not found.");
                     }
+                    this.plantHealth = 10;
                     resetDaysUntilGrowth();
                     resetDaysUntilDead();
                     bellPepperHarvestCount++;
