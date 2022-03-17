@@ -32,6 +32,7 @@ public class Scene1Controller{
     public Label dayLabel, timeLabel;
     public Label timesSpeedLabel;
     public Label bellPepperTotalLabel, eggplantTotalLabel, onionTotalLabel, tomatoTotalLabel, zucchiniTotalLabel;
+    public Label header2;
 
     public Tooltip notice1, notice2;
 
@@ -222,6 +223,8 @@ public class Scene1Controller{
         heatingLabel.setTooltip(null);
         timesSpeedLabel.setVisible(true);
         timesSpeedSlider.setVisible(true);
+
+        header2.setText("Fully automated simulation running...");
 
         menuButtonArrayList = new ArrayList<>(Arrays.asList(mb00,mb01,mb02,mb03,mb04,mb05,mb10,mb11,mb12,mb13,mb14,mb15,
                 mb20,mb21,mb22,mb23,mb24,mb25,mb30,mb31,mb32,mb33,mb34,mb35,

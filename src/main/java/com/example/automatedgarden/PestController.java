@@ -5,10 +5,8 @@ import java.util.Random;
 public class PestController {
 
     private static int maxPests = -1;
-    private static int pestSpawnTime; //random number between 0 (inclusive) and 5 (exclusive) OR 20 (inclusive) and 24 (exclusive)
+    private static int pestSpawnTime;
 
-    //randomly generate number of pests that will spawn (1 - # of total plants?)
-    //randomly generate pestSpawnTime using parameters given above
     //loop through plant2DArray. if plant exists, randomly decide if pest should spawn
     //if pest will spawn, create new pest object at same coordinates of plant in pest2DArray
     //update image to reflect
@@ -36,6 +34,7 @@ public class PestController {
         }
     }
 
+    //randomly generate number of pests that will spawn (1 - # of total plants?)
     public static void calculateMaxPests() {
         //counts number of total plants to be the max number of pests
         maxPests = 0;
@@ -49,6 +48,8 @@ public class PestController {
         }
     }
 
+    //pestSpawnTime must be random number between 15 (inclusive) and 22 (exclusive)
+    //randomly generate pestSpawnTime using parameters given above
     public static void generateSpawnTime() {
         Random rand = new Random(System.currentTimeMillis());
         pestSpawnTime = rand.nextInt(15, 22);

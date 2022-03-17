@@ -15,12 +15,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.automatedgarden.Scene1Controller">
    <children>
-      <Label layoutX="279.0" layoutY="13.0" text="Welcome to the garden">
+      <Label layoutX="278.0" layoutY="13.0" text="Welcome to the garden">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="312.0" layoutY="44.0" text="Please pick your plants">
+      <Label fx:id="header2" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="45.0" prefHeight="26.0" prefWidth="406.0" text="Please pick your plants" textAlignment="CENTER">
          <font>
             <Font size="17.0" />
          </font>
