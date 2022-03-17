@@ -519,7 +519,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="sprinklersLabel" layoutX="789.0" layoutY="335.0" text="Sprinklers">
+      <Label fx:id="sprinklersLabel" layoutX="789.0" layoutY="335.0" text="Sprinklers" textFill="TRANSPARENT" visible="false">
          <font>
             <Font size="16.0" />
          </font>
@@ -527,15 +527,15 @@
             <Tooltip fx:id="notice1" text="Submit choices before using sprinklers" />
          </tooltip>
       </Label>
-      <Button fx:id="sprinklersOnButton" disable="true" layoutX="771.0" layoutY="362.0" mnemonicParsing="false" onAction="#turnSprinklersOn" prefHeight="40.0" prefWidth="50.0" text="On" textAlignment="CENTER">
+      <Button fx:id="sprinklersOnButton" disable="true" layoutX="771.0" layoutY="362.0" mnemonicParsing="false" onAction="#turnSprinklersOn" prefHeight="40.0" prefWidth="50.0" text="On" textAlignment="CENTER" visible="false">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="sprinklersOffButton" disable="true" layoutX="828.0" layoutY="362.0" mnemonicParsing="false" onAction="#turnSprinklersOff" prefHeight="40.0" prefWidth="50.0" text="Off" textAlignment="CENTER">
+      <Button fx:id="sprinklersOffButton" disable="true" layoutX="828.0" layoutY="362.0" mnemonicParsing="false" onAction="#turnSprinklersOff" prefHeight="40.0" prefWidth="50.0" text="Off" textAlignment="CENTER" visible="false">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label fx:id="heatingLabel" layoutX="796.0" layoutY="435.0" text="Heating">
+      <Label fx:id="heatingLabel" layoutX="796.0" layoutY="435.0" text="Heating" visible="false">
          <font>
             <Font size="16.0" />
          </font>
@@ -543,11 +543,11 @@
             <Tooltip fx:id="notice2" text="Submit choices before using heating" />
          </tooltip>
       </Label>
-      <Button fx:id="heatingOnButton" disable="true" layoutX="771.0" layoutY="461.0" mnemonicParsing="false" onAction="#turnHeatingOn" prefHeight="40.0" prefWidth="50.0" text="On" textAlignment="CENTER">
+      <Button fx:id="heatingOnButton" disable="true" layoutX="771.0" layoutY="461.0" mnemonicParsing="false" onAction="#turnHeatingOn" prefHeight="40.0" prefWidth="50.0" text="On" textAlignment="CENTER" visible="false">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="heatingOffButton" disable="true" layoutX="829.0" layoutY="461.0" mnemonicParsing="false" onAction="#turnHeatingOff" prefHeight="40.0" prefWidth="50.0" text="Off" textAlignment="CENTER">
+      <Button fx:id="heatingOffButton" disable="true" layoutX="829.0" layoutY="461.0" mnemonicParsing="false" onAction="#turnHeatingOff" prefHeight="40.0" prefWidth="50.0" text="Off" textAlignment="CENTER" visible="false">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -621,18 +621,18 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="playPauseButton" layoutX="790.0" layoutY="648.0" mnemonicParsing="false" onAction="#playPauseButtonClicked" prefHeight="40.0" prefWidth="70.0" text="Pause" textAlignment="CENTER" visible="false">
+      <Button fx:id="playPauseButton" layoutX="786.0" layoutY="549.0" mnemonicParsing="false" onAction="#playPauseButtonClicked" prefHeight="40.0" prefWidth="70.0" text="Pause" textAlignment="CENTER" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="timesSpeedLabel" layoutX="745.0" layoutY="544.0" prefHeight="26.0" prefWidth="160.0" text="Simulation Speed: 1" visible="false">
+      <Label fx:id="timesSpeedLabel" alignment="CENTER" layoutX="741.0" layoutY="379.0" prefHeight="26.0" prefWidth="160.0" text="Simulation Speed: 1" visible="false">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Slider fx:id="timesSpeedSlider" blockIncrement="1.0" layoutX="745.0" layoutY="571.0" majorTickUnit="1.0" max="12.0" min="1.0" minorTickCount="0" onMouseReleased="#timesSpeedChanged" prefHeight="24.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
-      <Label fx:id="helpLabel" layoutX="630.0" layoutY="16.0" prefHeight="26.0" prefWidth="100.0" text="Hover for tips:" textAlignment="CENTER" wrapText="true">
+      <Slider fx:id="timesSpeedSlider" blockIncrement="1.0" layoutX="741.0" layoutY="402.0" majorTickUnit="1.0" max="12.0" min="1.0" minorTickCount="0" onMouseReleased="#timesSpeedChanged" prefHeight="24.0" prefWidth="160.0" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+      <Label fx:id="helpLabel" layoutX="729.0" layoutY="32.0" prefHeight="26.0" prefWidth="100.0" text="Hover for tips:" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
@@ -645,32 +645,6 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="35.0" text="1" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <tooltip>
-                  <Tooltip maxWidth="225.0" text="Place sprinklers in B2, B5, E2, and E5 for maximum water coverage!" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="35.0" text="2" textAlignment="CENTER" GridPane.columnIndex="1">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <tooltip>
-                  <Tooltip maxWidth="225.0" text="n/a" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip>
-            </Label>
-         </children>
       </GridPane>
       <Label layoutX="746.0" layoutY="116.0" text="Harvesting Totals:">
          <font>
@@ -701,6 +675,30 @@
          <font>
             <Font size="18.0" />
          </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="835.0" layoutY="29.0" prefHeight="32.0" prefWidth="35.0" text="1" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <tooltip>
+            <Tooltip maxWidth="225.0" text="Place sprinklers in B2, B5, E2, and E5 for maximum water coverage!" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="878.0" layoutY="29.0" prefHeight="32.0" prefWidth="35.0" text="2" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <tooltip>
+            <Tooltip maxWidth="225.0" text="Increase the simulation speed to watch your garden grow faster!" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
       </Label>
    </children>
 </AnchorPane>
